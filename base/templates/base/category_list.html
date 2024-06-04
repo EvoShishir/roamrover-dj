@@ -1,0 +1,15 @@
+{% extends "base/main.html" %} {% block content %}
+
+<section class="categories-container">
+  <h1>Discover Locations by your Preference</h1>
+  <div class="categories">
+    {% for category in object_list %}
+    <a href="{% url 'categories' %}"">
+      <img src="{{category.image.url}}" alt="" style="width: 100%" />
+      <h3>{{ category.name }}</h3>
+    </a>
+    {%endfor%}
+  </div>
+</section>
+
+{% endblock %}
