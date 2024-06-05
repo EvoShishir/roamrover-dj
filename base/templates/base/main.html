@@ -324,9 +324,11 @@
   <body>
     <nav>
       <div class="flex justify-between align-center">
-        <img src="../../../media/images/Logo.png" alt="main logo" />
+        <a href="/">
+          <img src="../../../media/images/Logo.png" alt="main logo" />
+        </a>
         <div class="nav-items flex align-center">
-          <a href="/all">All Locations</a>
+          <a href="/locations">All Locations</a>
         </div>
         <label class="burger" for="burger">
           <input type="checkbox" id="burger" />
@@ -345,7 +347,10 @@
     <br />
     <br />
 
-    <footer class="footer-container flex justify-between">
+    <footer
+      class="footer-container flex justify-between"
+      style="border-top: 1px solid black"
+    >
       <div class="footer-item">
         <img src="/assets/Logo.png" alt="" style="width: 50%" />
         <h4>A companion created to make your life easy.</h4>

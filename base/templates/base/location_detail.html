@@ -2,7 +2,7 @@
 
 <section style="min-height: 100vh">
   <div style="display: flex; justify-content: center">
-    <img src="{{location.image.url}}" alt="" style="height: 50vh" />
+    <img src="{{location.image.url}}" alt="" style="height: 80vh" />
   </div>
   <br />
   <br />
@@ -67,12 +67,12 @@
           </p>
           {% elif location.cautious %}
           <p style="color: #b6ba00">
-            <i class="fa-regular fa-thumbs-up"></i>
+            <i class="fa-solid fa-circle-exclamation"></i>
             Be cautious with women and children
           </p>
           {% elif location.unsafe %}
           <p style="color: #a83131">
-            <i class="fa-regular fa-thumbs-up"></i>
+            <i class="fa-solid fa-triangle-exclamation"></i>
             Unsafe for women and children
           </p>
           {% endif %}
@@ -103,11 +103,11 @@
     </tr>
     {% for cost in costs %}
     <tr>
-      <td>Bus (Dhaka to Bandarban)</td>
-      <td>620-1500 BDT</td>
-      <td>376 KM</td>
-      <td>10 Hours</td>
-      <td>1</td>
+      <td>{{cost.cost_type}}</td>
+      <td>{{cost.cost}} BDT</td>
+      <td>{{cost.distance}} KM</td>
+      <td>{{cost.time}} Hours</td>
+      <td>{{cost.people}} Person(s)</td>
     </tr>
     {% endfor %}
   </table>

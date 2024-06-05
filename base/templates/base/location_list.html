@@ -1,6 +1,8 @@
 {% extends "base/main.html" %} {% block content %}
 
 <section class="all-locations">
+  <h1>Select a Location</h1>
+
   {% for location in object_list %}
   <div class="location-container">
     <img src="{{location.image.url}}" alt="" style="width: 100%" />
@@ -11,7 +13,7 @@
         {{location.city}}
       </p>
       <p>{{location.bio}}</p>
-      <a href="#"
+      <a href="{% url 'location' location.id %}"
         ><button><h3>See Details</h3></button></a
       >
     </div>

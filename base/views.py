@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.shortcuts import get_object_or_404
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from .models import Category, Location, LocationCost
@@ -10,6 +11,23 @@ class CategoriesList(ListView):
     model = Category
 
 
+class CategoryLocationList(ListView):
+    model = Location
+    template_name = 'location_list.html'
+    context_object_name = 'locations'
+
+    def get_queryset(self):
+        category_id = self.kwargs['category_id']
+        category = get_object_or_404(Category, id=category_id)
+        return Location.objects.filter(category=category)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['category'] = get_object_or_404(
+            Category, id=self.kwargs['category_id'])
+        return context
+
+
 class LocationsList(ListView):
     model = Location
 
@@ -17,8 +35,7 @@ class LocationsList(ListView):
 class SingleLocation(DetailView):
     model = Location
 
-
-class LocationCosts(ListView):
-    model = LocationCost
-    context_object_name = "costs"
-    template_name = "base/location_detail.html"
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['costs'] = LocationCost.objects.filter(location=self.object)
+        return context
