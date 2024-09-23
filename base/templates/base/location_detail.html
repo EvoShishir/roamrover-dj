@@ -22,7 +22,7 @@
           {{location.city}}
         </p>
         <h4>Overview</h4>
-        <p>{{location.overview}}</p>
+        <p style="text-align: justify">{{location.overview}}</p>
       </div>
       <div style="display: flex; align-items: center; gap: 50px">
         <div>
@@ -47,7 +47,7 @@
             <i class="fa-solid fa-lightbulb" style="color: #90caf9"></i>
             Does not involve hiking
           </p>
-          {% endif %} {% if location.Acrophobic %}
+          {% endif %} {% if location.acrophobic %}
           <p>
             <i class="fa-solid fa-lightbulb" style="color: #90caf9"></i>
             May cause Acrophobia
@@ -89,7 +89,6 @@
         loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"
       ></iframe>
-      <img src="assets/card_01.png" alt="" style="width: 100%" />
     </div>
   </div>
   <h1>Approximate Cost Breakdown</h1>
@@ -111,6 +110,110 @@
     </tr>
     {% endfor %}
   </table>
+</section>
+
+<br />
+<br />
+
+<section class="all-locations">
+  <h1 style="text-align: center; font-size: 40px">
+    Discover Other Places Nearby
+  </h1>
+
+  {% comment %} {% for location in object_list %}
+  <div class="location-container">
+    <img
+      src="{{location.image.url}}"
+      alt=""
+      style="width: 100%; border-radius: 20px"
+    />
+    <div>
+      <h1>{{location.name}}</h1>
+      <p>
+        <i class="fa-solid fa-location-dot" style="color: #90caf9"></i>
+        {{location.city}}
+      </p>
+      <p>{{location.bio}}</p>
+      <a href="{% url 'location' location.id %}"
+        ><button><h3>See Details</h3></button></a
+      >
+    </div>
+  </div>
+  {% endfor %} {% endcomment %}
+  <div class="other-places">
+    <div
+      style="border: 1px solid lightgray; border-radius: 25px; padding: 20px"
+    >
+      <img
+        src="../../../media/images/location/bandarban.jpg"
+        alt=""
+        style="width: 100%; border-radius: 20px"
+      />
+      <div>
+        <h1>Nilgiri Mountain Hill</h1>
+        <p>
+          <i class="fa-solid fa-location-dot" style="color: #90caf9"></i>
+          Bandarban
+        </p>
+        <p>
+          Nilgiri is a place with the combination of the tallest peak, the
+          tribal village with a vibrant culture and colorful lifestyle of the
+          villagers, and the spectacular natural beauty.
+        </p>
+        <a href="#"
+          ><button><h3>See Details</h3></button></a
+        >
+      </div>
+    </div>
+    <div
+      style="border: 1px solid lightgray; border-radius: 25px; padding: 20px"
+    >
+      <img
+        src="../../../media/images/location/bandarban.jpg"
+        alt=""
+        style="width: 100%; border-radius: 20px"
+      />
+      <div>
+        <h1>Nilgiri Mountain Hill</h1>
+        <p>
+          <i class="fa-solid fa-location-dot" style="color: #90caf9"></i>
+          Bandarban
+        </p>
+        <p>
+          Nilgiri is a place with the combination of the tallest peak, the
+          tribal village with a vibrant culture and colorful lifestyle of the
+          villagers, and the spectacular natural beauty.
+        </p>
+        <a href="#"
+          ><button><h3>See Details</h3></button></a
+        >
+      </div>
+    </div>
+    <div
+      style="border: 1px solid lightgray; border-radius: 25px; padding: 20px"
+    >
+      <img
+        src="../../../media/images/location/bandarban.jpg"
+        alt=""
+        style="width: 100%; border-radius: 20px"
+      />
+      <div>
+        <h1>Nilgiri Mountain Hill</h1>
+        <p>
+          <i class="fa-solid fa-location-dot" style="color: #90caf9"></i>
+          Bandarban
+        </p>
+        <p>
+          Nilgiri is a place with the combination of the tallest peak, the
+          tribal village with a vibrant culture and colorful lifestyle of the
+          villagers, and the spectacular natural beauty.
+        </p>
+        <a href="#"
+          ><button><h3>See Details</h3></button></a
+        >
+      </div>
+    </div>
+  </div>
 </section>
 
 {% endblock content %}

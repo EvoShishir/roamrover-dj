@@ -5,7 +5,11 @@
 
   {% for location in object_list %}
   <div class="location-container">
-    <img src="{{location.image.url}}" alt="" style="width: 100%" />
+    <img
+      src="{{location.image.url}}"
+      alt=""
+      style="width: 100%; border-radius: 20px"
+    />
     <div>
       <h1>{{location.name}}</h1>
       <p>

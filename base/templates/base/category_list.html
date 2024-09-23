@@ -1,7 +1,20 @@
 {% extends "base/main.html" %} {% block content %}
 
+<section class="hero flex align-center">
+  <div>
+    <h1>Experience beautiful Bangladesh, one adventure at a time</h1>
+    <p>
+      Whether you're looking for a relaxing beach vacation or an adventurous
+      trip to a new city, we have plans for everyone.
+    </p>
+  </div>
+  <img src="../../../media/images/hero-image.jpg" alt="" />
+</section>
+
+<section class="ready-banner">Ready to Travel?</section>
+
 <section class="categories-container">
-  <h1>Discover Locations by your Preference</h1>
+  <h2>Explore the Beauty of Bangladesh</h2>
   <div class="categories">
     {% for category in object_list %}
     <a href="{% url 'category_locations' category.id %}">
@@ -10,6 +23,15 @@
     </a>
     {%endfor%}
   </div>
+</section>
+
+<section class="bottom flex align-center justify-center">
+  <img src="../../../media/images/bottom.png" alt="" />
+  <h3>
+    See the world,
+    <br />
+    It’s yours to explore.
+  </h3>
 </section>
 
 {% endblock %}
