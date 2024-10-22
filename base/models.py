@@ -33,6 +33,9 @@ class Location(models.Model):
     lattitude = models.CharField(max_length=200, blank=True, null=True)
     longitude = models.CharField(max_length=200, blank=True, null=True)
 
+    class Meta:
+        ordering = ['city']
+
     def __str__(self):
         return self.name
 

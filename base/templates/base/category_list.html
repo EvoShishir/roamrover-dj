@@ -1,6 +1,6 @@
 {% extends "base/main.html" %} {% block content %}
 
-<section class="hero flex align-center">
+<section class="hero align-center">
   <div>
     <h1>Experience beautiful Bangladesh, one adventure at a time</h1>
     <p>
@@ -8,7 +8,7 @@
       trip to a new city, we have plans for everyone.
     </p>
   </div>
-  <img src="../../../media/images/hero-image.jpg" alt="" />
+  <img src="../../../media/images/home-1.svg" alt="" style="width: 100%" />
 </section>
 
 <section class="ready-banner">Ready to Travel?</section>
@@ -18,15 +18,19 @@
   <div class="categories">
     {% for category in object_list %}
     <a href="{% url 'category_locations' category.id %}">
-      <img src="{{category.image.url}}" alt="" style="width: 100%" />
+      <img
+        src="{{category.image.url}}"
+        alt=""
+        style="width: 100%; height: 252px"
+      />
       <h3>{{ category.name }}</h3>
     </a>
     {%endfor%}
   </div>
 </section>
 
-<section class="bottom flex align-center justify-center">
-  <img src="../../../media/images/bottom.png" alt="" />
+<section class="bottom align-center justify-center">
+  <img src="../../../media/images/home-2.svg" alt="" style="width: 100%" />
   <h3>
     See the world,
     <br />

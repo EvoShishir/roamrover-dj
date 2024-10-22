@@ -38,4 +38,9 @@ class SingleLocation(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['costs'] = LocationCost.objects.filter(location=self.object)
+        # Fetch the city name of the current location
+        city_name = self.object.city
+        # Get all locations with the same city name, excluding the current location
+        context['nearbyLocations'] = Location.objects.filter(
+            city=city_name).exclude(pk=self.object.pk)
         return context

@@ -95,18 +95,18 @@
   <table style="padding-bottom: 40px">
     <tr>
       <th>Type</th>
-      <th>Cost</th>
-      <th>Distance</th>
-      <th>Time</th>
+      <th>Cost (BDT)</th>
+      <th>Distance (KM)</th>
+      <th>Time (Hours)</th>
       <th>People</th>
     </tr>
     {% for cost in costs %}
     <tr>
       <td>{{cost.cost_type}}</td>
-      <td>{{cost.cost}} BDT</td>
-      <td>{{cost.distance}} KM</td>
-      <td>{{cost.time}} Hours</td>
-      <td>{{cost.people}} Person(s)</td>
+      <td>{{cost.cost}}</td>
+      <td>{{cost.distance}}</td>
+      <td>{{cost.time}}</td>
+      <td>{{cost.people}}</td>
     </tr>
     {% endfor %}
   </table>
@@ -115,105 +115,38 @@
 <br />
 <br />
 
+{% if nearbyLocations %}
 <section class="all-locations">
   <h1 style="text-align: center; font-size: 40px">
-    Discover Other Places Nearby
+    Discover Other Places in {{location.city}}
   </h1>
-
-  {% comment %} {% for location in object_list %}
-  <div class="location-container">
-    <img
-      src="{{location.image.url}}"
-      alt=""
-      style="width: 100%; border-radius: 20px"
-    />
-    <div>
-      <h1>{{location.name}}</h1>
-      <p>
-        <i class="fa-solid fa-location-dot" style="color: #90caf9"></i>
-        {{location.city}}
-      </p>
-      <p>{{location.bio}}</p>
-      <a href="{% url 'location' location.id %}"
-        ><button><h3>See Details</h3></button></a
-      >
-    </div>
-  </div>
-  {% endfor %} {% endcomment %}
   <div class="other-places">
+    {% for location in nearbyLocations %}
     <div
       style="border: 1px solid lightgray; border-radius: 25px; padding: 20px"
     >
       <img
-        src="../../../media/images/location/bandarban.jpg"
+        src="{{location.image.url}}"
         alt=""
-        style="width: 100%; border-radius: 20px"
+        style="width: 100%; border-radius: 20px; height: 252px"
       />
       <div>
-        <h1>Nilgiri Mountain Hill</h1>
+        <h1>{{location.name}}</h1>
         <p>
           <i class="fa-solid fa-location-dot" style="color: #90caf9"></i>
-          Bandarban
+          {{location.city}}
         </p>
-        <p>
-          Nilgiri is a place with the combination of the tallest peak, the
-          tribal village with a vibrant culture and colorful lifestyle of the
-          villagers, and the spectacular natural beauty.
-        </p>
-        <a href="#"
-          ><button><h3>See Details</h3></button></a
-        >
+        <p>{{location.bio}}</p>
+        <a href="{% url 'location' location.id %}">
+          <button><h3>See Details</h3></button>
+        </a>
       </div>
     </div>
-    <div
-      style="border: 1px solid lightgray; border-radius: 25px; padding: 20px"
-    >
-      <img
-        src="../../../media/images/location/bandarban.jpg"
-        alt=""
-        style="width: 100%; border-radius: 20px"
-      />
-      <div>
-        <h1>Nilgiri Mountain Hill</h1>
-        <p>
-          <i class="fa-solid fa-location-dot" style="color: #90caf9"></i>
-          Bandarban
-        </p>
-        <p>
-          Nilgiri is a place with the combination of the tallest peak, the
-          tribal village with a vibrant culture and colorful lifestyle of the
-          villagers, and the spectacular natural beauty.
-        </p>
-        <a href="#"
-          ><button><h3>See Details</h3></button></a
-        >
-      </div>
-    </div>
-    <div
-      style="border: 1px solid lightgray; border-radius: 25px; padding: 20px"
-    >
-      <img
-        src="../../../media/images/location/bandarban.jpg"
-        alt=""
-        style="width: 100%; border-radius: 20px"
-      />
-      <div>
-        <h1>Nilgiri Mountain Hill</h1>
-        <p>
-          <i class="fa-solid fa-location-dot" style="color: #90caf9"></i>
-          Bandarban
-        </p>
-        <p>
-          Nilgiri is a place with the combination of the tallest peak, the
-          tribal village with a vibrant culture and colorful lifestyle of the
-          villagers, and the spectacular natural beauty.
-        </p>
-        <a href="#"
-          ><button><h3>See Details</h3></button></a
-        >
-      </div>
-    </div>
+    {% endfor %}
   </div>
+  {% else %}
+  <p style="text-align: center">No nearby locations found.</p>
+  {% endif %}
 </section>
 
 {% endblock content %}
